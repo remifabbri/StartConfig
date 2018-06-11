@@ -1,2 +1,1 @@
-# datasociety
 # StartConfig
