@@ -1,8 +1,9 @@
-const path = require('path');
+var path = require("path");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const dev = process.env.NODE_ENV === "dev"
 
 let cssLoaders = [
+    'style-loader',
 	{ 
 		//Permet de de faire commprendre a webpack comment travailler avec le css
 		// et de pouvoir utiliser les @import et les url se trouvant dans le css
@@ -23,43 +24,45 @@ if (!dev) {
 	})
 }
 
+
 let config = {
+  entry: './src/app.js', 
 
-    entry: './src/js/app.js', 
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+    publicPath: "/dist"
+  },
 
-    watch: dev, 
+  watch: dev, 
+  devtool: dev ? "cheap-module-eval-source-map" : false,
+  
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: {
+          loader: "babel-loader",
+          options: { presets: ["es2015"] }
+        }
+      },
+      {
+        test:/\.css$/,
+        use: cssLoaders	
+      },
 
-    output: {
-        path: path.resolve('./dist'),
-        filename: 'bundle.js'
-    },
-
-    devtool: dev ? "cheap-module-eval-source-map" : false,
-
-    module: {
-        rules: [
-            {
-                test:/\.js$/,
-                exclude: /(node_modules|bower_components)/,
-                use:['babel-loader']
-            },
-            {
-				test:/\.css$/,
-                use: cssLoaders	
-			},
-			{
-				test:/\.scss$/,
-                use: [...cssLoaders, 'sass-loader'] //charge les fichiers scss et les compile en css			
-			},
-        ]
-    },
-
-    plugins: [
+      {
+        test:/\.scss$/,
+        use: [...cssLoaders, 'sass-loader'] //charge les fichiers scss et les compile en css			
+      },
     ]
-}
+  }
+};
 
 if (!dev){
-    config.plugins.push(new UglifyJSPlugin())
+    config.plugins.push(new UglifyJSPlugin({
+        sourceMap: true
+    }))
 }
 
 module.exports = config
