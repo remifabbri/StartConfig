@@ -7,7 +7,8 @@
     "start": "live-server --port=3000",
     "jsonserver": "json-server -p 3001 --watch db.json",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack"
+    "dev": "NODE_ENV=dev webpack",
+    "prod": "webpack"
   },
   "keywords": [],
   "author": "Remi fabbri",
@@ -16,6 +17,17 @@
     "web-push": "^3.3.1"
   },
   "devDependencies": {
+    "autoprefixer": "^8.6.2",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^0.28.11",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.9.0",
+    "postcss-loader": "^2.1.5",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^4.12.0",
     "webpack-cli": "^3.0.3"
   },
