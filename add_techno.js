@@ -1,7 +1,13 @@
 const technonameField = document.querySelector('#techno-name');
 const technoDescriptionField = document.querySelector('#techno-description');
 const technoUrlField = document.querySelector('#techno-url');
+//const technoImageField = document.getElementById('techno-file');
+//const input = document.getElementById('fileinput');
 const addTechnoForm = document.querySelector('#add-techno-form');
+
+
+
+
 
 addTechnoForm.addEventListener('submit', evt => {
     evt.preventDefault();

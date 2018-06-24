@@ -1,3 +1,19 @@
+var express = require('express');
+var app = express();
+
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+var multer = require('multer');
+var upload = multer({
+    dest: __dirname + '/uploads'
+}); 
+
+app.use(bodyParser.urlencoded());
+app.use(upload.single('file')); 
+
+app.use('/uploads', express.static(__dirname + '/uploads'));
+
 const technosDiv = document.querySelector('#technos');
 
 function loadTechnologies(technos) {

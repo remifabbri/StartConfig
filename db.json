@@ -2,9 +2,9 @@
   "technos": [
     {
       "id": 1,
-      "name": "Angular",
+      "name": "VueJs",
       "description": "le framework front-end",
-      "url": "https://angular.io/"
+      "url": "https://vuejs.org/"
     },
     {
       "id": 2,
@@ -25,10 +25,34 @@
       "url": "https://developer.mozilla.org/en-US/Apps/Progressive"
     },
     {
-      "name": "meteor",
-      "description": "fullstack js",
-      "url": "https://www.meteor.com/",
+      "name": "",
+      "description": "",
+      "url": "",
       "id": 5
+    },
+    {
+      "name": "html",
+      "description": "HyperText Markup Language",
+      "url": "https://whatwg.org/",
+      "id": 6
+    },
+    {
+      "name": "",
+      "description": "",
+      "url": "",
+      "id": 7
+    },
+    {
+      "name": "html",
+      "description": "HyperText Markup Language",
+      "url": "https://whatwg.org/",
+      "id": 8
+    },
+    {
+      "name": "html",
+      "description": "HyperText Markup Language",
+      "url": "https://whatwg.org/",
+      "id": 9
     }
   ]
 }
