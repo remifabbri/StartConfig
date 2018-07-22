@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <title>DataSociety</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="/css/styleFront.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="icon" href="data:;base64,=">
+    </head>
+    <body id="page-top">
+        <div class="navBar">
+            <div class="">
+                <a href="index.html">
+                    <img src="images/logoDataSociety.svg" alt="logo DataSociety">
+                </a>
+            </div>
+            <div class="items">
+                <a href="add_techno.html">technos</a>
+            </div>
+            <div class="items">
+                <a href="contact.html">contact</a>
+            </div>
+        </div>
+        <article class="contentBlock fluxActu">
+            <h1>Flux D'actualité</h1>
+            <div class="blockRow">
+                 {% block content %}{% endblock %}
+                <div class="fluxRss"></div>
+            </div>
+        </article>
+
+
+
+        <script src="main.js"></script>
+        <script src="/dist/bundle.js"></script>
+    </body>
+
+</html>

@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 
+var nunjucks = require('nunjucks'); 
+
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
@@ -13,6 +15,15 @@ app.use(bodyParser.urlencoded());
 app.use(upload.single('file')); 
 
 app.use('/uploads', express.static(__dirname + '/uploads'));
+
+require('./models/techno');
+
+app.use('/', require('./routes/technos'));
+
+nunjucks.configure('views', {
+    autoescape: true,
+    express: app
+});
 
 const technosDiv = document.querySelector('#technos');
 
